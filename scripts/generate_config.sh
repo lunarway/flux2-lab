@@ -9,7 +9,7 @@ DOCKER_TAG=$(shuttle get docker.tag)
 ENV=$(shuttle get env)
 SERVICE_NAME=$(shuttle get service)
 
-multipleKustomizations="k8s-cluster-config-mulitple-kustomizations"
+multipleKustomizations="k8s-cluster-config-multiple-kustomizations"
 rm -rf ${multipleKustomizations}
 echo "Creating ${multipleKustomizations}"
 for i in $(seq ${NB_SERVICES})
@@ -19,4 +19,13 @@ do
     
     mkdir -p ${multipleKustomizations}/${ENV}/releases/${ENV}/${SERVICE_NAME}-${i}
     shuttle template templates/multitool-pod.tmpl nb=${i} > ${multipleKustomizations}/${ENV}/releases/${ENV}/${SERVICE_NAME}-${i}/pod-multitool.yaml
+done
+
+singleKustomizations="k8s-cluster-config-single-kustomization"
+rm -rf ${singleKustomizations}
+echo "Creating ${singleKustomizations}"
+for i in $(seq ${NB_SERVICES})
+do
+    mkdir -p ${singleKustomizations}/${ENV}/releases/${ENV}/${SERVICE_NAME}-${i}
+    shuttle template templates/multitool-pod.tmpl nb=${i} > ${singleKustomizations}/${ENV}/releases/${ENV}/${SERVICE_NAME}-${i}/pod-multitool.yaml
 done
