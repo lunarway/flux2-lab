@@ -9,7 +9,7 @@ metadata:
   namespace: {{ $namespace }}
 spec:
   interval: 5m0s
-  path: ./{{ $env }}/releases/{{ $namespace }}/{{ $service }}-{{ $nb }}
+  path: ./k8s-cluster-config/{{ $env }}/releases/{{ $namespace }}/{{ $service }}-{{ $nb }}
   prune: true
   sourceRef:
     kind: GitRepository
