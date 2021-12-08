@@ -9,15 +9,14 @@ DOCKER_TAG=$(shuttle get docker.tag)
 ENV=$(shuttle get env)
 SERVICE_NAME=$(shuttle get service)
 
-echo "Creating $NB_SERVICES with ${DOCKER_IMAGE}${DOCKER_TAG}"
-
+multipleKustomizations="k8s-cluster-config-mulitple-kustomizations"
+rm -rf ${multipleKustomizations}
+echo "Creating ${multipleKustomizations}"
 for i in $(seq ${NB_SERVICES})
 do
-  echo "Creating kustomize manifest in k8s-cluster-config/clusters/${ENV}/${SERVICE_NAME}-${i}"
-  mkdir -p k8s-cluster-config/clusters/${ENV}/${SERVICE_NAME}-${i}
-  shuttle template templates/flux-kustomize.tmpl nb=${i} > k8s-cluster-config/clusters/${ENV}/${SERVICE_NAME}-${i}/kustomize.yaml
-
-  echo "Creating pod manifest in k8s-cluster-config/${ENV}/releases/${ENV}/${SERVICE_NAME}-${i}"
-  mkdir -p k8s-cluster-config/${ENV}/releases/${ENV}/${SERVICE_NAME}-${i}
-  shuttle template templates/multitool-pod.tmpl nb=${i} > k8s-cluster-config/${ENV}/releases/${ENV}/${SERVICE_NAME}-${i}/pod-multitool.yaml
+    mkdir -p ${multipleKustomizations}/clusters/${ENV}/${SERVICE_NAME}-${i}
+    shuttle template templates/flux-kustomize.tmpl nb=${i} > ${multipleKustomizations}/clusters/${ENV}/${SERVICE_NAME}-${i}/kustomize.yaml
+    
+    mkdir -p ${multipleKustomizations}/${ENV}/releases/${ENV}/${SERVICE_NAME}-${i}
+    shuttle template templates/multitool-pod.tmpl nb=${i} > ${multipleKustomizations}/${ENV}/releases/${ENV}/${SERVICE_NAME}-${i}/pod-multitool.yaml
 done
