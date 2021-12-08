@@ -1,0 +1,9 @@
+plan: .
+vars:
+  squad: nasa
+  service: network-multitool
+  service-count: 20
+  docker:
+    image: praqma/network-multitool
+    tag: alpine-minimal
+  env: dev

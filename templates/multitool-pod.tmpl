@@ -1,0 +1,15 @@
+{{- $service := string "service" .Vars -}}
+{{- $namespace := get "env" .Vars -}}
+{{- $nb := get "nb" .Args -}}
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: nwtool
+  name: {{ $service }}-{{ $nb }}
+  namespace: {{ $namespace }}
+spec:
+  containers:
+  - image: praqma/network-multitool
+    imagePullPolicy: Always
+    name: nwtool
