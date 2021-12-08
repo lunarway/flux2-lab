@@ -3,6 +3,7 @@ kind: Pod
 metadata:
   labels:
     app: nwtool
+    test: test
   name: network-multitool-250
   namespace: dev
 spec:
