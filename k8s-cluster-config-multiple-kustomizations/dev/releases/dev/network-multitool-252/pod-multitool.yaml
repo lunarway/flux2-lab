@@ -3,8 +3,8 @@ kind: Pod
 metadata:
   labels:
     app: nwtool
-  name: network-multitool-250
-  namespace: non-existing
+  name: network-multitool-252
+  namespace: dev
 spec:
   containers:
   - image: praqma/network-multitool
