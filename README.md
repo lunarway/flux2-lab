@@ -20,3 +20,10 @@ Single kustomization:
 - Second reconciliation: Added missing namespace: 23s
 - Added label: 23s
 - Added failure and new services: failed after 25. no new services were added.
+
+Multiple Ksutomizations:
+
+- First: 38s
+- Second: 23s
+
+Pod/dev/network-multitool-1 kustomization: 453.1251ms
