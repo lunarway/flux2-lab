@@ -5,7 +5,7 @@ metadata:
   namespace: dev
 spec:
   interval: 5m0s
-  path: ./k8s-cluster-config/dev/releases/dev/network-multitool-96
+  path: ./k8s-cluster-config-multiple-kustomizations/dev/releases/dev/network-multitool-96
   prune: true
   sourceRef:
     kind: GitRepository
