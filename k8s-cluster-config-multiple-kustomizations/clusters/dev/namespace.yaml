@@ -4,5 +4,3 @@ metadata:
   labels:
     kubernetes.io/metadata.name: dev
   name: dev
-
-
