@@ -1,0 +1,13 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+kind: Kustomization
+metadata:
+  name: network-multitool-98
+  namespace: dev
+spec:
+  interval: 5m0s
+  path: ./k8s-cluster-config/dev/releases/dev/network-multitool-98
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: k8s-cluster-config
+    namespace: flux-system

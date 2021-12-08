@@ -2,7 +2,7 @@ plan: false
 vars:
   squad: nasa
   service: network-multitool
-  service-count: 20
+  service-count: 1000
   docker:
     image: praqma/network-multitool
     tag: alpine-minimal
