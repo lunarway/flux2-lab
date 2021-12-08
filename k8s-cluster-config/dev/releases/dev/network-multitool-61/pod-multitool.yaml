@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: nwtool
+  name: network-multitool-61
+  namespace: dev
+spec:
+  containers:
+  - image: praqma/network-multitool
+    imagePullPolicy: Always
+    name: nwtool
