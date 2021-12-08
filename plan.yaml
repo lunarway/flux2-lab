@@ -1,6 +1,0 @@
-vars:
-scripts:
-  generate_config:
-    description: Generates kustomize files for n services
-    actions:
-      - shell: $plan/scripts/generate_config.sh

@@ -1,4 +1,4 @@
-plan: .
+plan: false
 vars:
   squad: nasa
   service: network-multitool
@@ -7,3 +7,8 @@ vars:
     image: praqma/network-multitool
     tag: alpine-minimal
   env: dev
+scripts:
+  generate_config:
+    description: Generates kustomize files for n services
+    actions:
+      - shell: $project/scripts/generate_config.sh
