@@ -1,7 +1,7 @@
 plan: false
 vars:
   squad: nasa
-  service: network-multitool
+  service: flux2-lab
   service-count: 255
   docker:
     image: praqma/network-multitool
